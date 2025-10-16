@@ -1,0 +1,44 @@
+/* Reactive Background Styles */
+@layer utilities {
+  .bg-gradient-radial-mouse {
+    background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+      rgba(147, 51, 234, 0.1) 0%, 
+      rgba(59, 130, 246, 0.05) 25%, 
+      transparent 50%);
+  }
+
+  .bg-grid-pattern {
+    background-image: 
+      linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  .bg-mouse-glow {
+    background: radial-gradient(circle, rgba(147, 51, 234, 0.03) 0%, transparent 70%);
+    filter: blur(40px);
+    left: var(--mouse-x, 50%);
+    top: var(--mouse-y, 50%);
+  }
+
+  .cat-element {
+    left: var(--cat-x);
+    top: var(--cat-y);
+    font-size: var(--cat-size);
+    opacity: var(--cat-opacity);
+    transform: translate(-50%, -50%) rotate(var(--cat-rotation));
+    /* Keep only blur/scale transitions for hover effects */
+    transition: filter 0.2s ease, transform 0.2s ease;
+  }
+
+  .mouse-glow-positioned {
+    left: var(--mouse-x, 50%);
+    top: var(--mouse-y, 50%);
+  }
+}
+
+/* CSS Custom Properties */
+:root {
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+}
